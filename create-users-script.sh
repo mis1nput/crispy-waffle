@@ -11,7 +11,7 @@ user_name_selection() {
        0) TARGET_USER="velociraptor" ;;
        1) TARGET_USER="tim" ;;
        2) TARGET_USER="lex" ;;
-       3) TARGET_USER="dr,ian-malcolm" ;;
+       3) TARGET_USER="dr.ian-malcolm" ;;
        4) TARGET_USER="the-lawyer" ;;
     esac
 }
@@ -21,14 +21,14 @@ user_name_selection() {
 TARGET_USER=""
 USER_COUNT="0"
 
-## User Creations ## 
-while [ "$USER_COUNT" -lt 5 ]; do
-
     echo "
 ################################
 ##       Creating Users       ##
 ################################
 "
+## User Creations ## 
+while [ "$USER_COUNT" -lt 5 ]; do
+
     ## Sets User for Search
     user_name_selection
     ##Checking For the User##
@@ -47,6 +47,19 @@ while [ "$USER_COUNT" -lt 5 ]; do
 
     USER_COUNT=$((USER_COUNT + 1))
 done
+
+##give dr.ian-malcolm Sudo Privilages
+echo "Giving Someone Privilages.... specifically Dr.Ian Malcolm"
+sudo usermod -aG sudo "dr.ian-malcolm"
+echo "Done.."
+## Locking The Lawyer Out
+echo "Getting Rid of lawyer.. He costs too much"
+sudo usermod -L "the-lawyer"
+echo "Done..."
+
+##ending
+echo "Script Complete bye bye"
+
 
 
 
