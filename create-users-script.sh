@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 ##Functions##
@@ -21,7 +22,7 @@ TARGET_USER=""
 USER_COUNT="0"
 
 ## User Creations ## 
-while ["$USER_COUNT" -lt 5 ]; do
+while [ "$USER_COUNT" -lt 5 ]; do
 
     echo "
 ################################
@@ -33,19 +34,18 @@ while ["$USER_COUNT" -lt 5 ]; do
     ##Checking For the User##
     echo "Checking if Exists"
     if user_exists "$TARGET_USER"; then
-      echo ""$TARGET_USER" exists skipping user creation"
+        echo ""$TARGET_USER" exists skipping user creation"
     else 
-      echo "$TARGET_USER doesn't exist begin creating user...."
-      sudo useradd "$TARGET_USER"
-      ## User Created ##
-      read -p "$TARGET_USER Created, Password Prompting is Next"
-      sudo passwd $TARGET_USER
-      echo "Password Created!!"
-      getent passwd | grep $TARGET_USER
-      
+        echo "$TARGET_USER doesn't exist begin creating user...."
+        sudo useradd "$TARGET_USER"
+        ## User Created ##
+        read -p "$TARGET_USER Created, Password Prompting is Next"
+        sudo passwd $TARGET_USER
+        echo "Password Created!!"
+        getent passwd | grep $TARGET_USER
     fi
 
-    USER_COUNT+$((USER_COUNT + 1))
+    USER_COUNT=$((USER_COUNT + 1))
 done
 
 
