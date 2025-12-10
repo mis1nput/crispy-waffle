@@ -1,4 +1,11 @@
 #!/bin/bash
+
+##Functions##
+user_exists() {
+    getent passwd "$1" >/dev/null 2>&1
+  }
+
+
 ##Allows for Functions to be easily accesed##
 TARGET_USER=""
 
@@ -25,17 +32,14 @@ TARGET_USER="velociraptor"
 if user_exists "$TARGET_USER"; then
   echo "User exists skipping user creation"
 else 
-    sudo useradd "velociraptor"
-    ## User Created ##
-    read -p "User Created, Password Prompting is Next"
-    sudo passwd velociraptor
-    echo "Password Created!!"
-    getent passwd | grep velociraptor
+  sudo useradd "velociraptor"
+  ## User Created ##
+  read -p "User Created, Password Prompting is Next"
+  sudo passwd velociraptor
+  echo "Password Created!!"
+  getent passwd | grep velociraptor
+fi
 
 
 
-##Functions
-user_exists() {
-    getent passwd "$1" >/dev/null 2>&1
-  }
 
