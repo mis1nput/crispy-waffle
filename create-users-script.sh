@@ -50,7 +50,7 @@ done
 
 ##give dr.ian-malcolm Sudo Privilages
 echo "Giving Someone Privilages.... specifically Dr.Ian Malcolm"
-sudo usermod -aG sudo "dr.ian-malcolm"
+sudo usermod -aG wheel "dr.ian-malcolm"
 echo "Done.."
 ## Locking The Lawyer Out
 echo "Getting Rid of lawyer.. He costs too much"
