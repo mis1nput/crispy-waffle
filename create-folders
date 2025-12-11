@@ -1,4 +1,32 @@
 #!/Bin/Bash
 
-folder-check(){
-  
+folder-check-creation(){
+  if [ -d "$DIR-PATH" ]; then
+      echo '$DIR-PATH' Exists Skipping
+  else
+      echo "'$DIR-PATH' Doesn't Exist, Starting Creation"
+      mkdir $DIR-PATH
+      ls $DIR-PATH
+  fi
+  DIR-COUNT=$((DIR-COUNT+1))
+}
+
+change-dir(){
+  case "$DIR-COUNT" in
+  0) $DIR-PATH="/isla-nublar" ;;
+  1) $DIR-PATH="$DIR-PATH+/visitor-center" ;;
+  2) $DIR-PATH="$DIR-PATH+/kitchen" ;;
+  esac
+} 
+
+create-files(){
+  cd $DIR-PATH
+  touch ice-cream.txt
+  touch jello.txt
+}
+
+give-permissions(){
+
+
+DIR-PATH = ""
+DIR-COUNT = ""
