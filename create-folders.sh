@@ -6,7 +6,7 @@ folder_check_creation(){
       echo "'$DIR_PATH' Exists Skipping"
   else
       echo "'$DIR_PATH' Doesn't Exist, Starting Creation"
-      mkdir -p "$DIR_PATH"
+      sudo mkdir -p "$DIR_PATH"
       ls "$DIR_PATH"
   fi
   DIR_COUNT=$((DIR_COUNT+1))
