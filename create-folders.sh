@@ -22,24 +22,24 @@ change_dir(){
 
 create_files(){
   cd "$DIR_PATH"
-  touch ice-cream.txt
-  touch jello.txt
+  sudo touch ice-cream.txt
+  sudo touch jello.txt
 }
 
 give_permissions(){
   DIR_COUNT=1
   change_dir
-  chmod 777 "$DIR_PATH"
+  sudo chmod 777 "$DIR_PATH"
   DIR_COUNT=2
   change_dir
-  chmod 700 "$DIR_PATH"
-  setfacl -m u:velociraptor:rwx "$DIR_PATH"
-  setfacl -m u:tim:rwx "$DIR_PATH"
-  setfacl -m u:lex:rwx "$DIR_PATH"
-  chmod 700 ice-cream.txt
-  chmod 700 jello.txt
-  setfacl -m u:tim:rwx "$DIR_PATH/ice-cream.txt"
-  setfacl -m u:lex:rwx "$DIR_PATH/jello.txt"
+  sudo chmod 700 "$DIR_PATH"
+  sudo setfacl -m u:velociraptor:rwx "$DIR_PATH"
+  sudo setfacl -m u:tim:rwx "$DIR_PATH"
+  sudo setfacl -m u:lex:rwx "$DIR_PATH"
+  sudo chmod 700 ice-cream.txt
+  sudo chmod 700 jello.txt
+  sudo setfacl -m u:tim:rwx "$DIR_PATH/ice-cream.txt"
+  sudo setfacl -m u:lex:rwx "$DIR_PATH/jello.txt"
 }
 
 
